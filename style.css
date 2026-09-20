@@ -1,0 +1,72 @@
+:root { color-scheme: dark; }
+
+* { box-sizing: border-box; }
+
+html, body, main {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #020617;
+}
+
+main {
+  height: 100vh;
+  position: relative;
+  background:
+    radial-gradient(circle at 50% 42%, #0b2759 0%, #061633 33%, #020617 72%);
+}
+
+canvas { display: block; width: 100%; height: 100%; }
+
+.controls {
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: clamp(.45rem, 2.3vh, 1.35rem);
+  transform: translateX(-50%);
+  display: grid;
+  justify-items: center;
+  gap: .55rem;
+  width: max-content;
+  max-width: calc(100% - 2rem);
+}
+
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  border: 1px solid rgba(125, 211, 252, .62);
+  border-radius: 999px;
+  padding: .78rem 1.15rem;
+  color: #e0f2fe;
+  background: rgba(2, 15, 38, .74);
+  box-shadow: 0 0 30px rgba(56, 189, 248, .22);
+  backdrop-filter: blur(10px);
+  font: 600 1rem/1 system-ui, sans-serif;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, opacity .28s ease;
+}
+
+button:hover { transform: scale(1.05); background: rgba(7, 41, 84, .93); }
+button:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 4px; }
+button.playing { opacity: 0; pointer-events: none; }
+button > span:first-child { color: #38bdf8; font-size: 1.28rem; }
+
+#message {
+  margin: 0;
+  color: rgba(186, 230, 253, .73);
+  text-align: center;
+  font: .78rem/1.3 system-ui, sans-serif;
+  letter-spacing: .04em;
+  transition: opacity .28s ease;
+}
+
+#message.hidden { opacity: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  button { transition: none; }
+}

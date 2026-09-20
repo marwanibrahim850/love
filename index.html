@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#020617" />
+    <meta name="description" content="A glowing blue heart made of love." />
+    <title>I Love You</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main aria-label="Animated blue heart">
+      <canvas id="heart" aria-label="A blue glowing heart made of love you messages"></canvas>
+      <section class="controls" aria-label="Music controls">
+        <button id="playButton" type="button" aria-pressed="false">
+          <span aria-hidden="true">♥</span>
+          <span>Open my heart</span>
+        </button>
+        <p id="message">Tap to play the music</p>
+      </section>
+      <audio id="music" loop preload="auto">
+        <source src="love_you.mp3" type="audio/mpeg" />
+      </audio>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
