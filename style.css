@@ -16,8 +16,9 @@ body {
 main {
   height: 100vh;
   position: relative;
-  background:
-    radial-gradient(circle at 50% 42%, #0b2759 0%, #061633 33%, #020617 72%);
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 42%, #0b3470 0%, #061633 36%, #020617 75%);
+  animation: night-glow 9s ease-in-out infinite alternate;
 }
 
 canvas { display: block; width: 100%; height: 100%; }
@@ -26,11 +27,11 @@ canvas { display: block; width: 100%; height: 100%; }
   position: fixed;
   z-index: 1;
   left: 50%;
-  bottom: clamp(.45rem, 2.3vh, 1.35rem);
+  bottom: clamp(.75rem, 2.5vh, 1.45rem);
   transform: translateX(-50%);
   display: grid;
   justify-items: center;
-  gap: .55rem;
+  gap: .45rem;
   width: max-content;
   max-width: calc(100% - 2rem);
 }
@@ -48,25 +49,26 @@ button {
   backdrop-filter: blur(10px);
   font: 600 1rem/1 system-ui, sans-serif;
   cursor: pointer;
-  transition: transform .18s ease, background .18s ease, opacity .28s ease;
+  transition: transform .18s ease, background .18s ease;
 }
 
 button:hover { transform: scale(1.05); background: rgba(7, 41, 84, .93); }
 button:focus-visible { outline: 3px solid #7dd3fc; outline-offset: 4px; }
-button.playing { opacity: 0; pointer-events: none; }
 button > span:first-child { color: #38bdf8; font-size: 1.28rem; }
 
-#message {
+.controls p {
   margin: 0;
   color: rgba(186, 230, 253, .73);
   text-align: center;
   font: .78rem/1.3 system-ui, sans-serif;
   letter-spacing: .04em;
-  transition: opacity .28s ease;
 }
 
-#message.hidden { opacity: 0; }
+@keyframes night-glow {
+  from { background-position: 50% 42%; }
+  to { background-position: 48% 45%; }
+}
 
 @media (prefers-reduced-motion: reduce) {
-  button { transition: none; }
+  main, button { animation: none; transition: none; }
 }
